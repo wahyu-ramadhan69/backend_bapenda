@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id Int @id @default(autoincrement())
+  name String
+  email String 
+  password String
+  refresh_token String? @db.VarChar(255)
+  role String
+  createdAt DateTime @default(now())
+} 
+
+model loket_1{
+  id Int @id @default(autoincrement())
+  nomer_antrian Int 
+  status Int
+  createdAt DateTime @default(now())
+}
+
+model kasir{
+  id Int @id @default(autoincrement())
+  nomer_antrian Int 
+  status Int
+  dilayani String?
+  createdAt DateTime @default(now())
+}
+
+model pbb{
+  id Int @id @default(autoincrement())
+  nomer_antrian Int 
+  status Int
+  dilayani String?
+  createdAt DateTime @default(now())
+}
+
+model bphtb{
+  id Int @id @default(autoincrement())
+  nomer_antrian Int 
+  status Int
+  dilayani String?
+  createdAt DateTime @default(now())
+}
+
+model spptpbb{
+  id Int @id @default(autoincrement())
+  nomer_antrian Int 
+  status Int
+  dilayani String?
+  createdAt DateTime @default(now())
+}
